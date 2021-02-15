@@ -7,7 +7,7 @@ use std::{
 }; // Import the collections library
 
 use chrono; // Import time library
-
+use crate::ed25519_dalek::Signer;
 use num::{bigint::BigUint, Zero}; // Add support for large unsigned integers
 
 use bincode;

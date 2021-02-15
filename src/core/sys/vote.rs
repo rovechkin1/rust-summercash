@@ -2,6 +2,7 @@ use ed25519_dalek; // Import the edwards25519 digital signature library
 
 use bincode; // Import serde bincode
 use serde::{Deserialize, Serialize}; // Import serde serialization
+use crate::ed25519_dalek::Signer;
 
 use super::super::super::{
     common::address::Address,

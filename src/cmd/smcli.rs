@@ -19,11 +19,11 @@ use std::clone::Clone;
 #[clap(version = "1.0", author = "Dowland A.")]
 struct Opts {
     /// Print debug info
-    #[clap(short = "d", long = "debug")]
+    #[clap(short = 'd', long = "debug")]
     debug: bool,
 
     /// Prevents any non-critical information from being printed to the console
-    #[clap(short = "s", long = "silent")]
+    #[clap(short = 's', long = "silent")]
     silent: bool,
 
     /// Changes the directory that node data will be stored in
@@ -32,7 +32,7 @@ struct Opts {
 
     /// Signals to the SummerCash command-line utility that it should connect to the given node.
     #[clap(
-        short = "r",
+        short = 'r',
         long = "remote-host-url",
         default_value = "http://127.0.0.1:8080"
     )]

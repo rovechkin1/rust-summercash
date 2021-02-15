@@ -228,7 +228,7 @@ impl ClientBehavior {
     /// Gets the number of active, connected peers.
     pub fn active_peers(&mut self) -> usize {
         // Return the number of connected peers
-        self.kad_dht.kbuckets_entries().size_hint().0
+        self.kad_dht.kbuckets().size_hint().0
     }
 
     /// Gets a quorum for an acceptable majority of the active subset of the network.
@@ -692,7 +692,7 @@ impl Client {
         // an mDNS service handler as well as a gossipsub instance targeted at the given peer
         let behavior = ClientBehavior {
             gossipsub: sub,
-            mdns: Mdns::new()?,
+            mdns: Mdns::new().await?,
             kad_dht: Kademlia::new(self.peer_id.clone(), store),
             identification: Identify::new(
                 format!("{}", self.network),
@@ -713,7 +713,7 @@ impl Client {
         };
 
         let mut swarm = Swarm::new(
-            libp2p::build_tcp_ws_secio_mplex_yamux(self.keypair.clone())?,
+            libp2p::build_tcp_ws_noise_mplex_yamux(self.keypair.clone())?,
             behavior,
             self.peer_id.clone(),
         ); // Initialize a swarm

@@ -285,6 +285,6 @@ mod tests {
 
         let read_account = Account::read_from_disk(test_account.address().unwrap()).unwrap(); // Read account from disk
 
-        assert_eq!(test_account.address(), read_account.address()); // Ensure accounts have same address
+        assert_eq!(test_account.address().ok(), read_account.address().ok()); // Ensure accounts have same address
     }
 }

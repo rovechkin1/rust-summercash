@@ -33,27 +33,27 @@ use clap::Clap;
 #[clap(version = "1.0", author = "Dowland A.")]
 struct Opts {
     /// Print debug info
-    #[clap(short = "d", long = "debug")]
+    #[clap(short = 'd', long = "debug")]
     debug: bool,
 
     /// Prevents any non-critical information from being printed to the console
-    #[clap(short = "s", long = "silent")]
+    #[clap(short = 's', long = "silent")]
     silent: bool,
 
     /// Prevents the local node from connecting to any bootstrap peers.
-    #[clap(short = "nb", long = "no-bootstrap")]
+    #[clap(short = 'n', long = "no-bootstrap")]
     no_bootstrap: bool,
 
     /// Disables the SummerCash RPC API, leaving the node in a completely isolated state.
-    #[clap(short = "i", long = "isolated")]
+    #[clap(short = 'i', long = "isolated")]
     disable_api: bool,
 
     /// Signals to the local node that it should prefer the given port for all incoming operations.
-    #[clap(short = "p", long = "node-port", default_value = "0")]
+    #[clap(short = 'p', long = "node-port", default_value = "0")]
     node_port: u16,
 
     /// Signals to the local node that it should listen on the givn port for all RPC API communications.
-    #[clap(short = "P", long = "rpc-port", default_value = "8080")]
+    #[clap(short = 'P', long = "rpc-port", default_value = "8080")]
     api_port: u16,
 
     /// Ensures that the node will connect to the given network

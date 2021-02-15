@@ -3,6 +3,7 @@ use ed25519_dalek; // Import the edwards25519 digital signature library
 use super::super::super::common::address::Address;
 use super::transaction::Transaction;
 use serde::{Deserialize, Serialize}; // Import serde serialization
+use crate::ed25519_dalek::Verifier;
 
 /// An edwards25519 signature.
 #[derive(Serialize, Deserialize, Clone)]
